@@ -1,0 +1,42 @@
+<svg width="120" height="160" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Stems -->
+  <path d="M40 140 Q 35 120, 30 100 Q 25 80, 28 60" stroke="#2C2C2C" stroke-width="2" fill="none"/>
+  <path d="M60 155 Q 58 130, 55 105 Q 52 80, 50 55" stroke="#2C2C2C" stroke-width="2" fill="none"/>
+  <path d="M80 145 Q 78 125, 75 105 Q 72 85, 70 65" stroke="#2C2C2C" stroke-width="2" fill="none"/>
+  
+  <!-- Leaves/Grass -->
+  <path d="M20 130 Q 10 120, 15 110" stroke="#2C2C2C" stroke-width="1.5" fill="none"/>
+  <path d="M35 125 Q 25 115, 30 105" stroke="#2C2C2C" stroke-width="1.5" fill="none"/>
+  <path d="M50 135 Q 40 125, 45 115" stroke="#2C2C2C" stroke-width="1.5" fill="none"/>
+  <path d="M65 140 Q 55 130, 60 120" stroke="#2C2C2C" stroke-width="1.5" fill="none"/>
+  <path d="M85 130 Q 95 120, 90 110" stroke="#2C2C2C" stroke-width="1.5" fill="none"/>
+  <path d="M100 125 Q 110 115, 105 105" stroke="#2C2C2C" stroke-width="1.5" fill="none"/>
+  
+  <!-- Teal/Green Flower (Left) -->
+  <g transform="translate(30, 60)">
+    <path d="M 0,-5 Q -8,-15 -10,-25 Q -8,-18 -5,-12 Q -3,-8 0,-5 Z" fill="#00766C" stroke="#00534C" stroke-width="1"/>
+    <path d="M 0,-5 Q -5,-10 -12,-15 Q -8,-12 -4,-8 Q -2,-6 0,-5 Z" fill="#26A69A" stroke="#00534C" stroke-width="1"/>
+    <path d="M 0,-5 Q 5,-10 12,-15 Q 8,-12 4,-8 Q 2,-6 0,-5 Z" fill="#00897B" stroke="#00534C" stroke-width="1"/>
+    <path d="M 0,-5 Q 8,-15 10,-25 Q 8,-18 5,-12 Q 3,-8 0,-5 Z" fill="#4DB6AC" stroke="#00534C" stroke-width="1"/>
+    <ellipse cx="0" cy="-5" rx="3" ry="3" fill="#FFD54F"/>
+  </g>
+  
+  <!-- Maroon/Red Flower (Center) -->
+  <g transform="translate(50, 40)">
+    <path d="M 0,-8 Q -10,-20 -12,-32 Q -10,-24 -6,-16 Q -3,-10 0,-8 Z" fill="#AD1457" stroke="#880E4F" stroke-width="1"/>
+    <path d="M 0,-8 Q -8,-15 -15,-22 Q -10,-16 -5,-11 Q -2,-9 0,-8 Z" fill="#C2185B" stroke="#880E4F" stroke-width="1"/>
+    <path d="M 0,-8 Q 8,-15 15,-22 Q 10,-16 5,-11 Q 2,-9 0,-8 Z" fill="#D81B60" stroke="#880E4F" stroke-width="1"/>
+    <path d="M 0,-8 Q 10,-20 12,-32 Q 10,-24 6,-16 Q 3,-10 0,-8 Z" fill="#E91E63" stroke="#880E4F" stroke-width="1"/>
+    <path d="M 0,-8 Q 3,-18 0,-28 Q 0,-20 0,-12 Q 0,-10 0,-8 Z" fill="#C2185B" stroke="#880E4F" stroke-width="1"/>
+    <ellipse cx="0" cy="-8" rx="3.5" ry="3.5" fill="#FFD54F"/>
+  </g>
+  
+  <!-- Yellow/Gold Flower (Right) -->
+  <g transform="translate(70, 55)">
+    <path d="M 0,-6 Q -6,-14 -8,-22 Q -6,-16 -4,-12 Q -2,-8 0,-6 Z" fill="#F9A825" stroke="#F57F17" stroke-width="1"/>
+    <path d="M 0,-6 Q -5,-10 -10,-14 Q -7,-11 -3,-8 Q -1,-7 0,-6 Z" fill="#FBC02D" stroke="#F57F17" stroke-width="1"/>
+    <path d="M 0,-6 Q 5,-10 10,-14 Q 7,-11 3,-8 Q 1,-7 0,-6 Z" fill="#FDD835" stroke="#F57F17" stroke-width="1"/>
+    <path d="M 0,-6 Q 6,-14 8,-22 Q 6,-16 4,-12 Q 2,-8 0,-6 Z" fill="#FFEB3B" stroke="#F57F17" stroke-width="1"/>
+    <ellipse cx="0" cy="-6" rx="2.5" ry="2.5" fill="#FF6F00"/>
+  </g>
+</svg>
