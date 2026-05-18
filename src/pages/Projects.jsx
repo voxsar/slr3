@@ -1,9 +1,15 @@
 import { Link } from 'react-router-dom'
+import { pageHeroImages, projectsShowcase, projectsWallImages } from '../data/siteMedia'
 
 function Projects() {
   return (
     <>
-      <section className="page-hero">
+      <section
+        className="page-hero"
+        style={{
+          backgroundImage: `linear-gradient(135deg, rgba(173, 20, 87, 0.78), rgba(232, 119, 34, 0.66)), url(${pageHeroImages.projects})`,
+        }}
+      >
         <div className="container">
           <h1>Our Projects</h1>
           <p>Creating lasting change through focused initiatives across Sri Lanka</p>
@@ -23,46 +29,44 @@ function Projects() {
       <section className="projects-section">
         <div className="container">
           <div className="section-header">
-            <h2>Major Initiatives</h2>
-            <p>Our flagship programs making a lasting impact</p>
+            <h2>Programs in Action</h2>
+            <p>Local photo documentation from the dialogues, memorial spaces, workshops, and outreach that shape the movement.</p>
           </div>
           <div className="projects-grid">
-            <div className="project-card">
-              <div className="card-icon"><i className="fas fa-dove"></i></div>
-              <h3>Easter Attacks Recovery Program</h3>
-              <p>Comprehensive support for victims and families affected by the 2019 Easter attacks, including trauma counseling, community rebuilding, and interfaith dialogue initiatives to promote healing and prevent future violence.</p>
-              <Link to="/easter-attacks" className="card-link">Learn More <i className="fas fa-arrow-right"></i></Link>
-            </div>
-            <div className="project-card">
-              <div className="card-icon"><i className="fas fa-heart"></i></div>
-              <h3>Civil War Survivors Support</h3>
-              <p>Providing holistic support to those affected by decades of civil war through counseling services, economic empowerment programs, community building activities, and advocacy for survivors&apos; rights and needs.</p>
-              <Link to="/civil-war-survivors" className="card-link">Learn More <i className="fas fa-arrow-right"></i></Link>
-            </div>
-            <div className="project-card">
-              <div className="card-icon"><i className="fas fa-comments"></i></div>
-              <h3>Community Dialogue Forums</h3>
-              <p>Facilitating safe spaces for honest conversations between diverse communities, addressing historical grievances, building mutual understanding, and developing collaborative solutions for shared challenges.</p>
-              <a href="#dialogue" className="card-link">Learn More <i className="fas fa-arrow-right"></i></a>
-            </div>
-            <div className="project-card">
-              <div className="card-icon"><i className="fas fa-graduation-cap"></i></div>
-              <h3>Youth Peace Education</h3>
-              <p>Empowering young people to become peacebuilders through education programs, leadership training, and inter-ethnic youth camps that foster understanding and cooperation among the next generation.</p>
-              <a href="#youth" className="card-link">Learn More <i className="fas fa-arrow-right"></i></a>
-            </div>
-            <div className="project-card">
-              <div className="card-icon"><i className="fas fa-hands-helping"></i></div>
-              <h3>Women&apos;s Empowerment Initiative</h3>
-              <p>Supporting women affected by conflict through skills training, microfinance programs, and leadership development, recognizing women as crucial agents of peace and reconciliation in their communities.</p>
-              <a href="#women" className="card-link">Learn More <i className="fas fa-arrow-right"></i></a>
-            </div>
-            <div className="project-card">
-              <div className="card-icon"><i className="fas fa-book-open"></i></div>
-              <h3>Memory &amp; Documentation Project</h3>
-              <p>Preserving the stories and experiences of conflict survivors, creating a historical record that honors victims, promotes truth-telling, and serves as a foundation for lasting reconciliation.</p>
-              <a href="#memory" className="card-link">Learn More <i className="fas fa-arrow-right"></i></a>
-            </div>
+            {projectsShowcase.map((project) => (
+              <article key={project.title} className="project-card media-card">
+                <div className="project-card-media">
+                  <img src={project.image} alt={project.alt} loading="lazy" />
+                  <span className="project-chip">{project.badge}</span>
+                </div>
+                <div className="project-card-body">
+                  <h3>{project.title}</h3>
+                  <p>{project.summary}</p>
+                  {project.link ? (
+                    <Link to={project.link} className="card-link">{project.cta} <i className="fas fa-arrow-right"></i></Link>
+                  ) : (
+                    <span className="card-link card-link-muted">Community program</span>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="project-content" style={{ backgroundColor: 'var(--bg-cream)' }}>
+        <div className="container">
+          <div className="section-header">
+            <h2>Across the Movement</h2>
+            <p>Work happens in many formats, but it is always rooted in relationship, listening, and public presence.</p>
+          </div>
+          <div className="photo-grid">
+            {projectsWallImages.map((image) => (
+              <figure key={image.title} className="photo-card">
+                <img src={image.src} alt={image.alt} loading="lazy" />
+                <figcaption>{image.title}</figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>

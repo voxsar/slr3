@@ -1,9 +1,15 @@
 import { Link } from 'react-router-dom'
+import { aboutMissionImages, aboutStoryImages, pageHeroImages } from '../data/siteMedia'
 
 function About() {
   return (
     <>
-      <section className="page-hero">
+      <section
+        className="page-hero"
+        style={{
+          backgroundImage: `linear-gradient(135deg, rgba(173, 20, 87, 0.8), rgba(232, 119, 34, 0.68)), url(${pageHeroImages.about})`,
+        }}
+      >
         <div className="container">
           <h1>About Us</h1>
           <p>Meet the passionate team dedicated to healing and reconciliation in Sri Lanka</p>
@@ -15,7 +21,7 @@ function About() {
           <div className="content-section">
             <h2>Our Story</h2>
             <p>The Sri Lanka Reconciliation Movement was born from the shared vision of individuals who witnessed firsthand the devastating impact of conflict on communities across our nation. Founded in the aftermath of decades of civil strife and recent violence, our movement represents a grassroots commitment to healing, understanding, and lasting peace.</p>
-            <p>We believe that reconciliation is not just about remembering the past—it&apos;s about actively building a future where every Sri Lankan, regardless of ethnicity, religion, or background, can live with dignity, security, and hope. Our work is guided by the voices of survivors, the wisdom of community leaders, and the unwavering belief that peace is possible when we choose compassion over division.</p>
+            <p>We believe that reconciliation is not just about remembering the past. It is about actively building a future where every Sri Lankan, regardless of ethnicity, religion, or background, can live with dignity, security, and hope. Our work is guided by the voices of survivors, the wisdom of community leaders, and the unwavering belief that peace is possible when we choose compassion over division.</p>
           </div>
           <div className="content-section">
             <h2>Our Mission</h2>
@@ -30,6 +36,20 @@ function About() {
               <li><strong>Transparency:</strong> We operate with honesty and accountability</li>
               <li><strong>Hope:</strong> We believe in the possibility of healing and positive change</li>
             </ul>
+          </div>
+          <div className="content-section">
+            <div className="section-header section-header-left">
+              <h2>Scenes From Our Work</h2>
+              <p>The movement is built in rooms, circles, and community spaces where people choose to stay in conversation.</p>
+            </div>
+            <div className="mosaic-grid">
+              {aboutStoryImages.map((image, index) => (
+                <figure key={image.title} className={`mosaic-card${index === 0 ? ' mosaic-card-wide' : ''}`}>
+                  <img src={image.src} alt={image.alt} loading="lazy" />
+                  <figcaption>{image.title}</figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -80,6 +100,14 @@ function About() {
             <div className="stat-card"><div className="stat-number">45</div><div className="stat-label">Communities Reached</div></div>
             <div className="stat-card"><div className="stat-number">120</div><div className="stat-label">Dialogue Sessions</div></div>
             <div className="stat-card"><div className="stat-number">350+</div><div className="stat-label">Volunteers</div></div>
+          </div>
+          <div className="photo-grid photo-grid-compact">
+            {aboutMissionImages.map((image) => (
+              <figure key={image.title} className="photo-card">
+                <img src={image.src} alt={image.alt} loading="lazy" />
+                <figcaption>{image.title}</figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>

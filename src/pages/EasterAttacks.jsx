@@ -1,9 +1,15 @@
 import { Link } from 'react-router-dom'
+import { easterProgramImages, pageHeroImages } from '../data/siteMedia'
 
 function EasterAttacks() {
   return (
     <>
-      <section className="project-hero">
+      <section
+        className="project-hero"
+        style={{
+          backgroundImage: `linear-gradient(135deg, rgba(0, 118, 108, 0.72), rgba(173, 20, 87, 0.72)), url(${pageHeroImages.easter})`,
+        }}
+      >
         <div className="container">
           <h1>Easter Attacks Recovery Program</h1>
           <p className="subtitle">Supporting survivors and families in their journey toward healing and hope</p>
@@ -17,6 +23,18 @@ function EasterAttacks() {
             <p>On Easter Sunday 2019, coordinated terrorist attacks on churches and hotels across Sri Lanka killed over 250 people and injured hundreds more. The devastating attacks left deep scars on families, communities, and the nation as a whole.</p>
             <p>Our Easter Attacks Recovery Program was established in the immediate aftermath to provide comprehensive, long-term support to survivors and affected families. We recognized that healing from such trauma requires sustained, compassionate care that addresses physical, psychological, spiritual, and economic needs.</p>
             <p>Through trauma-informed counseling, community rebuilding initiatives, interfaith dialogue, and practical support services, we walk alongside survivors on their journey toward recovery and resilience.</p>
+          </div>
+
+          <div className="photo-grid">
+            {easterProgramImages.map((image) => (
+              <figure key={image.title} className="photo-card photo-card-detailed">
+                <img src={image.src} alt={image.alt} loading="lazy" />
+                <figcaption>
+                  <strong>{image.title}</strong>
+                  <span>{image.description}</span>
+                </figcaption>
+              </figure>
+            ))}
           </div>
 
           <div className="impact-stats">

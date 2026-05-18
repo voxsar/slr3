@@ -1,36 +1,16 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
-
-const slides = [
-  {
-    title: 'Building Bridges of Peace',
-    text: 'Working together to heal communities and foster reconciliation across Sri Lanka',
-    btnText: 'Learn More',
-    btnLink: '/about',
-  },
-  {
-    title: 'Supporting Survivors',
-    text: 'Providing hope and healing to those affected by conflict',
-    btnText: 'Our Projects',
-    btnLink: '/projects',
-  },
-  {
-    title: 'Join the Movement',
-    text: 'Be part of positive change and lasting peace',
-    btnText: 'Get Involved',
-    btnLink: '/join',
-  },
-]
+import { homeHeroSlides } from '../data/siteMedia'
 
 function HeroSlider() {
   const [current, setCurrent] = useState(0)
 
   const next = useCallback(() => {
-    setCurrent((c) => (c + 1) % slides.length)
+    setCurrent((c) => (c + 1) % homeHeroSlides.length)
   }, [])
 
   const prev = () => {
-    setCurrent((c) => (c - 1 + slides.length) % slides.length)
+    setCurrent((c) => (c - 1 + homeHeroSlides.length) % homeHeroSlides.length)
   }
 
   const goTo = (idx) => setCurrent(idx)
@@ -43,8 +23,15 @@ function HeroSlider() {
   return (
     <section className="hero-slider">
       <div className="slider-container">
-        {slides.map((slide, idx) => (
-          <div key={idx} className={`slide${current === idx ? ' active' : ''}`}>
+        {homeHeroSlides.map((slide, idx) => (
+          <div
+            key={slide.title}
+            className={`slide${current === idx ? ' active' : ''}`}
+            style={{
+              backgroundImage: `${slide.overlay}, url(${slide.image})`,
+            }}
+            aria-label={slide.alt}
+          >
             <div className="slide-content">
               <div className="container">
                 <h1 className="slide-title">{slide.title}</h1>
@@ -63,7 +50,7 @@ function HeroSlider() {
         <i className="fas fa-chevron-right"></i>
       </button>
       <div className="slider-dots">
-        {slides.map((_, idx) => (
+        {homeHeroSlides.map((_, idx) => (
           <span
             key={idx}
             className={`dot${current === idx ? ' active' : ''}`}

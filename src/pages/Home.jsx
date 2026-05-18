@@ -2,6 +2,12 @@ import { Link } from 'react-router-dom'
 import HeroSlider from '../components/HeroSlider'
 import GallerySlider from '../components/GallerySlider'
 import { useEffect, useRef } from 'react'
+import {
+  homeFeaturedProject,
+  homeJourneyImages,
+  homeProjectCards,
+  homeWhoWeAreImage,
+} from '../data/siteMedia'
 
 function Home() {
   const formRef = useRef(null)
@@ -25,7 +31,7 @@ function Home() {
       },
       { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     )
-    const animatedEls = document.querySelectorAll('.project-card, .team-member, .instagram-post')
+    const animatedEls = document.querySelectorAll('[data-reveal]')
     animatedEls.forEach((el) => {
       el.style.opacity = '0'
       el.style.transform = 'translateY(30px)'
@@ -43,16 +49,16 @@ function Home() {
       <section className="featured-project" id="featured">
         <div className="container">
           <div className="featured-content">
-            <div className="featured-image">
-              <div className="image-placeholder">
-                <i className="fas fa-hands-helping"></i>
-              </div>
+            <div className="featured-image" data-reveal>
+              <figure className="feature-figure">
+                <img src={homeFeaturedProject.image} alt={homeFeaturedProject.alt} loading="lazy" />
+              </figure>
             </div>
             <div className="featured-text">
-              <span className="label">Featured Project</span>
-              <h2>Healing Together: Civil War Survivors Support Program</h2>
-              <p>Our comprehensive support program provides counseling, community building, and economic empowerment to those affected by the civil war. Through compassionate care and sustainable solutions, we're helping families rebuild their lives.</p>
-              <Link to="/civil-war-survivors" className="btn-secondary">Learn More <i className="fas fa-arrow-right"></i></Link>
+              <span className="label">{homeFeaturedProject.label}</span>
+              <h2>{homeFeaturedProject.title}</h2>
+              <p>{homeFeaturedProject.description}</p>
+              <Link to={homeFeaturedProject.link} className="btn-secondary">Learn More <i className="fas fa-arrow-right"></i></Link>
             </div>
           </div>
         </div>
@@ -66,24 +72,19 @@ function Home() {
             <p>Creating lasting change through focused initiatives</p>
           </div>
           <div className="projects-grid">
-            <div className="project-card">
-              <div className="card-icon"><i className="fas fa-dove"></i></div>
-              <h3>Easter Attacks Recovery</h3>
-              <p>Supporting victims and families affected by the 2019 Easter attacks through trauma counseling and community rebuilding.</p>
-              <Link to="/easter-attacks" className="card-link">Read More <i className="fas fa-arrow-right"></i></Link>
-            </div>
-            <div className="project-card">
-              <div className="card-icon"><i className="fas fa-heart"></i></div>
-              <h3>Civil War Survivors</h3>
-              <p>Providing comprehensive support to those affected by decades of conflict through healing and empowerment programs.</p>
-              <Link to="/civil-war-survivors" className="card-link">Read More <i className="fas fa-arrow-right"></i></Link>
-            </div>
-            <div className="project-card">
-              <div className="card-icon"><i className="fas fa-users"></i></div>
-              <h3>Community Dialogue</h3>
-              <p>Facilitating conversations between diverse communities to build understanding and foster lasting peace.</p>
-              <Link to="/projects" className="card-link">Read More <i className="fas fa-arrow-right"></i></Link>
-            </div>
+            {homeProjectCards.map((project) => (
+              <article key={project.title} className="project-card media-card" data-reveal>
+                <div className="project-card-media">
+                  <img src={project.image} alt={project.alt} loading="lazy" />
+                  <span className="project-chip">{project.badge}</span>
+                </div>
+                <div className="project-card-body">
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  <Link to={project.link} className="card-link">Read More <i className="fas fa-arrow-right"></i></Link>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -98,10 +99,10 @@ function Home() {
               <p>Our team works tirelessly across the country, bringing together people from all backgrounds to foster understanding, provide support to those affected by violence, and build a future where every Sri Lankan can live in peace and dignity.</p>
               <Link to="/about" className="btn-secondary">Meet Our Team <i className="fas fa-arrow-right"></i></Link>
             </div>
-            <div className="who-image">
-              <div className="image-placeholder">
-                <i className="fas fa-hands-praying"></i>
-              </div>
+            <div className="who-image" data-reveal>
+              <figure className="feature-figure feature-figure--short">
+                <img src={homeWhoWeAreImage.src} alt={homeWhoWeAreImage.alt} loading="lazy" />
+              </figure>
             </div>
           </div>
         </div>
@@ -129,12 +130,14 @@ function Home() {
             </a>
           </div>
           <div className="instagram-grid">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="instagram-post">
-                <div className="post-placeholder">
-                  <i className="fab fa-instagram"></i>
+            {homeJourneyImages.map((item) => (
+              <article key={item.title} className="instagram-post image-post" data-reveal>
+                <img src={item.src} alt={item.alt} loading="lazy" />
+                <div className="journey-caption">
+                  <strong>{item.title}</strong>
+                  <span>{item.description}</span>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>

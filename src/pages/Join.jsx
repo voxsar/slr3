@@ -1,9 +1,17 @@
 import { Link } from 'react-router-dom'
+import { joinVolunteerImages, pageHeroImages } from '../data/siteMedia'
 
 function Join() {
+  const leadImage = joinVolunteerImages[0]
+
   return (
     <>
-      <section className="page-hero">
+      <section
+        className="page-hero"
+        style={{
+          backgroundImage: `linear-gradient(135deg, rgba(173, 20, 87, 0.72), rgba(0, 118, 108, 0.58)), url(${pageHeroImages.join})`,
+        }}
+      >
         <div className="container">
           <h1>Join Our Team</h1>
           <p>Be part of the movement for peace and reconciliation</p>
@@ -12,11 +20,15 @@ function Join() {
 
       <section className="join-content">
         <div className="container">
-          {/* Make a Difference - left aligned */}
-          <div className="join-intro text-left">
-            <h2>Make a Difference</h2>
-            <p>The Sri Lanka Reconciliation Movement thrives because of dedicated individuals who share our vision of a peaceful, inclusive Sri Lanka. Whether you can offer a few hours a week or are looking for a career in peacebuilding, there&apos;s a place for you in our movement.</p>
-            <p>Join us in creating lasting change and building bridges of understanding across communities.</p>
+          <div className="content-split">
+            <div className="join-intro text-left">
+              <h2>Make a Difference</h2>
+              <p>The Sri Lanka Reconciliation Movement thrives because of dedicated individuals who share our vision of a peaceful, inclusive Sri Lanka. Whether you can offer a few hours a week or are looking for a career in peacebuilding, there&apos;s a place for you in our movement.</p>
+              <p>Join us in creating lasting change and building bridges of understanding across communities.</p>
+            </div>
+            <figure className="feature-figure feature-figure--short">
+              <img src={leadImage.src} alt={leadImage.alt} loading="lazy" />
+            </figure>
           </div>
 
           <div className="section-header">
@@ -90,6 +102,23 @@ function Join() {
 
       <section className="project-content" style={{ backgroundColor: 'var(--bg-cream)' }}>
         <div className="container">
+          <div className="section-header">
+            <h2>How People Show Up</h2>
+            <p>From community distribution to public facilitation, the movement depends on people willing to be present.</p>
+          </div>
+          <div className="photo-grid">
+            {joinVolunteerImages.map((image) => (
+              <figure key={image.title} className="photo-card">
+                <img src={image.src} alt={image.alt} loading="lazy" />
+                <figcaption>{image.title}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="project-content" style={{ backgroundColor: 'var(--bg-cream)' }}>
+        <div className="container">
           <div className="content-section">
             <h2>What We Look For</h2>
             <p>While specific roles have different requirements, all members of our team share certain qualities:</p>
@@ -139,7 +168,7 @@ function Join() {
               <p style={{ color: 'var(--primary-maroon)', fontWeight: '600' }}>- Volunteer, Community Outreach</p>
             </div>
             <div className="project-card" style={{ borderTopColor: 'var(--primary-green)' }}>
-              <p style={{ fontStyle: 'italic', marginBottom: '1rem' }}>&ldquo;Working here isn&apos;t just a job—it&apos;s a calling. Every day, I witness the power of compassion and dialogue to transform lives and communities.&rdquo;</p>
+              <p style={{ fontStyle: 'italic', marginBottom: '1rem' }}>&ldquo;Working here isn&apos;t just a job - it&apos;s a calling. Every day, I witness the power of compassion and dialogue to transform lives and communities.&rdquo;</p>
               <p style={{ color: 'var(--primary-maroon)', fontWeight: '600' }}>- Program Coordinator</p>
             </div>
             <div className="project-card" style={{ borderTopColor: 'var(--primary-green)' }}>

@@ -1,9 +1,15 @@
 import { Link } from 'react-router-dom'
+import { civilWarProgramImages, pageHeroImages } from '../data/siteMedia'
 
 function CivilWarSurvivors() {
   return (
     <>
-      <section className="project-hero">
+      <section
+        className="project-hero"
+        style={{
+          backgroundImage: `linear-gradient(135deg, rgba(0, 118, 108, 0.74), rgba(173, 20, 87, 0.64)), url(${pageHeroImages.civilWar})`,
+        }}
+      >
         <div className="container">
           <h1>Civil War Survivors Support Program</h1>
           <p className="subtitle">Healing wounds and building futures for those affected by decades of conflict</p>
@@ -15,8 +21,20 @@ function CivilWarSurvivors() {
           <div className="content-section">
             <h2>About This Program</h2>
             <p>Sri Lanka&apos;s civil war, which spanned nearly three decades from 1983 to 2009, left profound scars on the nation. Hundreds of thousands lost their lives, families were torn apart, communities were destroyed, and entire generations grew up knowing only conflict. Even years after the war&apos;s end, survivors continue to grapple with trauma, loss, displacement, and the challenge of rebuilding their lives.</p>
-            <p>Our Civil War Survivors Support Program is one of our most comprehensive initiatives, recognizing that healing from such prolonged conflict requires sustained, multifaceted support. We work across the country—in the North, East, and conflict-affected areas throughout Sri Lanka—to provide holistic care that addresses the deep wounds of war while fostering reconciliation between communities.</p>
+            <p>Our Civil War Survivors Support Program is one of our most comprehensive initiatives, recognizing that healing from such prolonged conflict requires sustained, multifaceted support. We work across the country in the North, East, and conflict-affected areas throughout Sri Lanka to provide holistic care that addresses the deep wounds of war while fostering reconciliation between communities.</p>
             <p>This program is built on a foundation of survivor voices and community leadership. We don&apos;t impose solutions; we listen, we support, and we walk alongside those who have experienced unimaginable loss as they chart their own paths toward healing and hope.</p>
+          </div>
+
+          <div className="photo-grid">
+            {civilWarProgramImages.map((image) => (
+              <figure key={image.title} className="photo-card photo-card-detailed">
+                <img src={image.src} alt={image.alt} loading="lazy" />
+                <figcaption>
+                  <strong>{image.title}</strong>
+                  <span>{image.description}</span>
+                </figcaption>
+              </figure>
+            ))}
           </div>
 
           <div className="impact-stats">
@@ -102,7 +120,7 @@ function CivilWarSurvivors() {
           <div className="content-section">
             <h2>Voices of Healing</h2>
             <p style={{ fontStyle: 'italic', color: 'var(--text-gray)', borderLeft: '4px solid var(--primary-maroon)', paddingLeft: '1.5rem', margin: '2rem 0' }}>
-              &ldquo;I lost my husband in the final days of the war, leaving me alone with three young children. For years, I survived but didn&apos;t truly live. The Reconciliation Movement helped me start a small tailoring business through their microloan program. Now I&apos;m not just surviving—I&apos;m thriving, and my children have hope for their future. More importantly, through the support groups, I found community and purpose again.&rdquo; - Janani, War Widow
+              &ldquo;I lost my husband in the final days of the war, leaving me alone with three young children. For years, I survived but didn&apos;t truly live. The Reconciliation Movement helped me start a small tailoring business through their microloan program. Now I&apos;m not just surviving - I&apos;m thriving, and my children have hope for their future. More importantly, through the support groups, I found community and purpose again.&rdquo; - Janani, War Widow
             </p>
             <p style={{ fontStyle: 'italic', color: 'var(--text-gray)', borderLeft: '4px solid var(--primary-maroon)', paddingLeft: '1.5rem', margin: '2rem 0' }}>
               &ldquo;My son disappeared during the war. For 15 years, I had no answers. The program connected me with other families of the disappeared. Together, we&apos;ve found strength and companionship in our search for truth. They&apos;ve also provided legal support as we navigate the system. I may never get my son back, but at least now I&apos;m not alone in my pain.&rdquo; - Thevanai, Mother
@@ -139,7 +157,7 @@ function CivilWarSurvivors() {
 
           <div className="join-intro">
             <h2>Support This Vital Work</h2>
-            <p>The journey toward full reconciliation requires sustained commitment and resources. Your support—whether through donations, volunteering, or advocacy—directly impacts the lives of thousands of war survivors working to rebuild their lives and communities.</p>
+            <p>The journey toward full reconciliation requires sustained commitment and resources. Your support, whether through donations, volunteering, or advocacy, directly impacts the lives of thousands of war survivors working to rebuild their lives and communities.</p>
             <Link to="/join" className="btn-primary">Get Involved</Link>
             <Link to="/#contact" className="btn-secondary" style={{ marginLeft: '1rem' }}>Contact Us</Link>
           </div>
